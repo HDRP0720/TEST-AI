@@ -3,9 +3,11 @@
 * 유니티에 내장된 [AI Navigation](https://docs.unity3d.com/2021.3/Documentation/ScriptReference/UnityEngine.AIModule.html)이 아닌 [Navmesh Components](https://github.com/Unity-Technologies/NavMeshComponents.git#package)가 적용되어 있습니다.
     * Packages/manifest.json 파일 내에 다음과 같은 코드를 작성하여 추가합니다.
   ```json
-  "com.unity.ai.navigation.components": "https://github.com/Unity-Technologies/NavMeshComponents.git#package"
+  "com.unity.ai.navigation.components": "https://github.com/Unity-Technologies/NavMeshComponents.git#package",
+  "com.unity.toonshader": "0.9.5-preview",
+  "com.unity.springbone": "https://github.com/unity3d-jp/UnityChanSpringBone.git"
   ```
-* [unity-chan SSU]()캐릭터 사용하기 위해 Unity-chan Toon Shader : [UTS](com.unity.toonshader) 패키지를 설치합니다.
+* [unity-chan SSU](https://unity-chan.com/download/releaseNote.php?id=ssu_urp&lang=en) 캐릭터를 사용하기 위해 Unity-chan Toon Shader : [UTS](https://github.com/Unity-Technologies/com.unity.toonshader)패키지를 설치합니다.
   * 셰이더 적용을 위해 `URP-HighFidelity-Renderer`설정의 `Depth Priming Mode`를 `Disabled`로 변경
 * 위와 마찬가지로 [Unity-chan Spring Bone](https://github.com/unity3d-jp/UnityChanSpringBone.git) 패키지를 설치합니다.
 <br/>

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -8,13 +6,14 @@ using UnityEngine.AI;
 public class EnemyMovement : MonoBehaviour
 {
   [Tooltip("How frequently to recalculate path based on Target transform's position")]
-  public float UpdateTime = 0.1f;
+  public float updateTime = 0.1f;
+  public Transform target;
   
-  [SerializeField] private Transform _target;
   [SerializeField] private Animator _animator;
 
   private NavMeshAgent _agent;
   private AgentLinkMover _agentLinkMover;
+  private Coroutine _coroutine;
   
   private readonly int isMovingBoolHash = Animator.StringToHash("IsMoving");
   private readonly int jumpTriggerHash = Animator.StringToHash("Jump");
@@ -28,23 +27,25 @@ public class EnemyMovement : MonoBehaviour
     _agentLinkMover.OnLinkStart += HandleOnLinkStart;
     _agentLinkMover.OnLinkEnd += HandleOnLinkEnd;
   }
-  private void Start()
-  {
-    StartCoroutine(CoFollowTarget());
-  }
-
   private void Update()
   {
     _animator.SetBool(isMovingBoolHash, _agent.velocity.magnitude > 0.01f);
   }
-
+  
+  public void StartChasing()
+  {
+    if (_coroutine == null)
+      _coroutine = StartCoroutine(CoFollowTarget());
+    else
+      Debug.LogWarning("Called StartChasing on Enemy that is already chasing! This is likely a bug in some calling class!");
+  }
   private IEnumerator CoFollowTarget()
   {
-    WaitForSeconds wait = new WaitForSeconds(UpdateTime);
+    WaitForSeconds wait = new WaitForSeconds(updateTime);
  
     while (enabled)
     {
-      _agent.SetDestination(_target.position);
+      _agent.SetDestination(target.position);
       yield return wait;
     }
   }
