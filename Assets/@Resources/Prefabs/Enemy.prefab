@@ -8574,7 +8574,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4397391640994864465}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.35, y: 0, z: 0.86}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8632,6 +8632,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyMovement: {fileID: 4397391640994864471}
   agent: {fileID: 4397391640994864464}
+  enemyScriptableObject: {fileID: 11400000, guid: 897e3c1ee164a064e9ff7bd66bb0bf29,
+    type: 2}
   health: 100
 --- !u!114 &4397391640994864471
 MonoBehaviour:
