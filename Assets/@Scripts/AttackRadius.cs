@@ -10,18 +10,18 @@ public class AttackRadius : MonoBehaviour
   public int damage = 10;
   public float attackDelay = 0.5f;
   
-  private List<IDamageable> _damageables = new List<IDamageable>();
-  private Coroutine _coroutine;
+  protected List<IDamageable> _damageables = new List<IDamageable>();
+  protected Coroutine _coroutine;
   
-  public event Action<IDamageable> OnAttack;
+  public Action<IDamageable> OnAttack;
 
-  private void Awake()
+  protected virtual void Awake()
   {
     sphereCollider = GetComponent<SphereCollider>();
     sphereCollider.isTrigger = true;
   }
 
-  private void OnTriggerEnter(Collider other)
+  protected virtual void OnTriggerEnter(Collider other)
   {
     IDamageable damageable = other.GetComponent<IDamageable>();
     if (damageable != null)
@@ -33,7 +33,7 @@ public class AttackRadius : MonoBehaviour
       }
     }
   }
-  private void OnTriggerExit(Collider other)
+  protected virtual void OnTriggerExit(Collider other)
   {
     IDamageable damageable = other.GetComponent<IDamageable>();
     if (damageable != null)
@@ -47,7 +47,7 @@ public class AttackRadius : MonoBehaviour
     }
   }
 
-  private IEnumerator CoAttack()
+  protected virtual IEnumerator CoAttack()
   {
     WaitForSeconds wait = new WaitForSeconds(attackDelay);
     yield return wait;
@@ -83,7 +83,7 @@ public class AttackRadius : MonoBehaviour
     _coroutine = null;
   }
 
-  private bool DisabledDamageable(IDamageable damageable)
+  protected bool DisabledDamageable(IDamageable damageable)
   {
     return damageable != null && !damageable.GetTransform().gameObject.activeSelf;
   }

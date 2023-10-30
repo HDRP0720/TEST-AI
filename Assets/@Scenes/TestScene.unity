@@ -4542,11 +4542,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1398256738}
-  numberOfEnemiesToSpawn: 5
+  numberOfEnemiesToSpawn: 1
   spawnInterval: 1
   enemyPrefabs:
-  - {fileID: 4397391640994864457, guid: e00d262bd0a70a2438b61e5fc54d1ea4, type: 3}
+  - {fileID: 8035688166361346842, guid: 8143f2f3123935d45bb2ba0b392c0c3a, type: 3}
   - {fileID: 1343563722580748345, guid: 07ab0ee6551ac6e4598fbc2a197841c7, type: 3}
+  - {fileID: 4397391640994864457, guid: e00d262bd0a70a2438b61e5fc54d1ea4, type: 3}
   spawnMethod: 0
 --- !u!4 &376031970
 Transform:
@@ -15801,7 +15802,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _followTarget: {fileID: 589442304}
   _camera: {fileID: 1081130949}
-  _offset: {x: 0, y: 8, z: 0}
+  _offset: {x: 0, y: 10, z: 0}
 --- !u!1 &1401004785
 GameObject:
   m_ObjectHideFlags: 0

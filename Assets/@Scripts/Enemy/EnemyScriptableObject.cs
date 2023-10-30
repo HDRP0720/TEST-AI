@@ -13,7 +13,8 @@ public class EnemyScriptableObject : ScriptableObject
   public int health = 100;
   public float attackDelay = 0.5f;
   public int damage = 10;
-  public float attackRadius = 2.0f;
+  public float attackRadius = 1.5f;
+  public bool isRanged = false;
   
   public float aiUpdateInterval = 0.1f;
   
